@@ -27,4 +27,34 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> listAll() {
         return studentRepository.findAll();
     }
+
+    @Override
+    public List<Student> listarPorNome(String firstName) {
+        List<Student> students = studentRepository.findByFirstName(firstName);
+        if(students.isEmpty()){
+            throw new RuntimeException("Nao encontrado");
+        }
+
+        return students;
+    }
+
+    @Override
+    public List<Student> containingNome(String nome) {
+        List<Student> students = studentRepository.findByFirstNameContaining(nome);
+        if(students.isEmpty()){
+            throw new RuntimeException("Não encontrado");
+        }
+        return students;
+    }
+
+    @Override
+    public List<Student> guardianName(String nome) {
+        List<Student> students = studentRepository.findByGuardianName(nome);
+        if (students.isEmpty()){
+            throw new RuntimeException("Não encontrado");
+        }
+        return students;
+    }
+
+
 }
