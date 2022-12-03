@@ -14,4 +14,6 @@ public interface StudentService {
     public  List<Student> containingNome(String nome);
 
     public List<Student> guardianName(String nome);
+
+    public Student FirstNameAndLastName(String firstName, String lastName);
 }

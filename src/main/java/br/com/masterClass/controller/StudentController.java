@@ -57,4 +57,13 @@ public class StudentController {
 
     }
 
+    @GetMapping("buscarPorNome")
+    public ResponseEntity<Student> buscarPorFirstNameAndLastName(@RequestParam(value = "FirstName", required=true) String firstName,
+                                                                 @RequestParam(value = "LastName",required=true) String lastName ){
+        LOGGER.info("Buscando Por FirstNameAndLastName ...");
+
+        return new ResponseEntity<>(studentService.FirstNameAndLastName(firstName, lastName), HttpStatus.OK);
+
+    }
+
 }

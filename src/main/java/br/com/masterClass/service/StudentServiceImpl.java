@@ -56,5 +56,14 @@ public class StudentServiceImpl implements StudentService {
         return students;
     }
 
+    @Override
+    public Student FirstNameAndLastName(String firstName, String lastName) {
+        Student student = studentRepository.findByFirstNameAndLastName(firstName,lastName);
+        if(student == null){
+            throw new RuntimeException("Não encontrado...");
+        }
+        return student;
+    }
+
 
 }
