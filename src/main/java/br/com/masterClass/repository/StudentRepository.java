@@ -3,6 +3,7 @@ package br.com.masterClass.repository;
 import br.com.masterClass.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -33,6 +34,13 @@ public interface StudentRepository extends JpaRepository <Student, Long>{
             nativeQuery = true
     )
     Student getStudentByEmailAddressNative(String emailId);
+
+    //Native Named Param
+    @Query(
+            value = "select * from tbl_student s where s.email_address = :emailId",
+            nativeQuery = true
+    )
+    Student getStudentByEmailAddressNativeNameParam(@Param("emailId") String emailId);
 
 
 }
