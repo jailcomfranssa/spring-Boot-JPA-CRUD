@@ -5,6 +5,7 @@ import br.com.masterClass.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -75,8 +76,17 @@ class StudentRepositoryTest {
         System.out.println("Student = " + student);
     }
 
+    @Test
     public void printGetStudentFirstNameByEmailAddress(){
         String firstName = studentRepository.getStudentFirstNameByEmailAddress("ja@j.com.br");
+        System.out.println("Student = " + firstName);
+    }
+
+    @Test
+    public void getStudentByEmailAddressNative(){
+        Student student = studentRepository.getStudentByEmailAddressNative("ja@j.com.br");
+        System.out.println("Student = " + student);
+
     }
 
 }
