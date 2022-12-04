@@ -1,7 +1,8 @@
-package br.com.masterClass.service;
+package br.com.masterClass.service.impl;
 
 import br.com.masterClass.entity.Student;
 import br.com.masterClass.repository.StudentRepository;
+import br.com.masterClass.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
