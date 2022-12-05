@@ -1,5 +1,8 @@
 package br.com.masterClass.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
@@ -33,6 +36,7 @@ public class CursoMaterial {
             name = "curso_id",
             referencedColumnName = "cursoId"
     )
+    @JsonBackReference
     private Curso curso;
 }
 

@@ -1,5 +1,7 @@
 package br.com.masterClass.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +29,12 @@ public class Curso {
     private Long cursoId;
     private String title;
     private Integer credit;
+
+    @OneToOne(
+            mappedBy = "curso"
+    )
+    @JsonManagedReference
+    private CursoMaterial cursoMaterial;
 }
 
 
