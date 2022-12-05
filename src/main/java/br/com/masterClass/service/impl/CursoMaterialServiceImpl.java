@@ -6,6 +6,8 @@ import br.com.masterClass.service.CursoMaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CursoMaterialServiceImpl implements CursoMaterialService {
 
@@ -20,4 +22,11 @@ public class CursoMaterialServiceImpl implements CursoMaterialService {
     public CursoMaterial salvar(CursoMaterial cursoMaterial) {
         return cursoMaterialRepository.save(cursoMaterial);
     }
+
+    @Override
+    public List<CursoMaterial> listAll() {
+        return cursoMaterialRepository.findAll();
+    }
+
+
 }
