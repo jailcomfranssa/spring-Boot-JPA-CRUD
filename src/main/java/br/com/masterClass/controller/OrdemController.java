@@ -1,6 +1,7 @@
 package br.com.masterClass.controller;
 
 import br.com.masterClass.entity.Ordem;
+import br.com.masterClass.entity.OrdemItem;
 import br.com.masterClass.service.OrdemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,17 @@ public class OrdemController {
     public ResponseEntity<Ordem> salvar(@RequestBody Ordem ordem){
         LOGGER.info("Criando Ordem de compras...");
         return new ResponseEntity<>(ordemService.salvar(ordem), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/ordemItem")
+    public ResponseEntity<Ordem> salverOrdemList(@RequestBody Ordem ordem, OrdemItem ordemItem){
+        return new ResponseEntity<>(ordemService.salvarOrdemList(ordem, ordemItem),HttpStatus.CREATED);
+
+    }
+
+    @GetMapping("/ordemItem")
+    public ResponseEntity<List<Ordem>> listAllOrdemItem(){
+        return new ResponseEntity<>(ordemService.listOrdemItem(),HttpStatus.OK);
     }
 
     @GetMapping()

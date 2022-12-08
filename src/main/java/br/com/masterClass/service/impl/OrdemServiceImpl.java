@@ -1,6 +1,7 @@
 package br.com.masterClass.service.impl;
 
 import br.com.masterClass.entity.Ordem;
+import br.com.masterClass.entity.OrdemItem;
 import br.com.masterClass.repository.OrdemRepository;
 import br.com.masterClass.service.OrdemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,4 +77,24 @@ public class OrdemServiceImpl implements OrdemService {
         }
 
     }
+
+    @Override
+    public Ordem salvarOrdemList(Ordem ordem, OrdemItem ordemItem) {
+
+       ordem.add(ordemItem);
+       return ordemRepository.save(ordem);
+    }
+
+    @Override
+    public List<Ordem> listOrdemItem() {
+
+        //        orders.forEach((o)->{
+//            o.getOrdemItems().forEach((orderItem->{
+//            }));
+//        });
+
+        return ordemRepository.findAll();
+    }
+
+
 }
